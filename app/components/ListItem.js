@@ -6,14 +6,14 @@ import AppText from './AppText';
 
 
 
-function ListItem({title, subtitle, image, ImageComponent, onPress, renderRightActions}) {
+function ListItem({title, subtitle, image, IconComponent, onPress, renderRightActions}) {
     return (
         <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight
         underlayColor={colors.light}
         onPress={()=> onPress}>
         <View style={styles.container}>
-            {ImageComponent}
+            {IconComponent}
             {image &&<Image style={styles.image} source={image} />}
             <View style={styles.detailsContainer}>
                 <AppText style={styles.title}>{title}</AppText>
@@ -29,7 +29,8 @@ function ListItem({title, subtitle, image, ImageComponent, onPress, renderRightA
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        padding: 15
+        padding: 15,
+        backgroundColor: colors.white
     },
     detailsContainer: {
         marginLeft: 10,
