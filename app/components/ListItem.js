@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import colors from '../config/colors';
 import AppText from './AppText';
 
 
-function ListItem({title, subtitle, image}) {
+function ListItem({title, subtitle, image, onPress}) {
     return (
+        <TouchableHighlight
+        underlayColor={colors.light}
+        onPress={()=> onPress()}>
         <View style={styles.container}>
             <Image style={styles.image} source={image} />
             <View>
@@ -13,6 +16,8 @@ function ListItem({title, subtitle, image}) {
                 <AppText style={styles.subtitle}>{subtitle}</AppText>
             </View>
         </View>
+        </TouchableHighlight>
+        
     );
 }
 
